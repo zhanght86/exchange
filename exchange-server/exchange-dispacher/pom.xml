@@ -12,6 +12,11 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
 			<groupId>com.exchange</groupId>
 			<artifactId>exchange-common</artifactId>
 			<version>${exchange.version}</version>
@@ -22,6 +27,11 @@
 			<artifactId>exchange-optool</artifactId>
 			<version>${exchange.version}</version>
 			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 </project>

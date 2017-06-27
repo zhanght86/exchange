@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<!-- <mvc:annotation-driven conversion-service="conversionService">
+		<mvc:argument-resolvers>
+            <bean class="com.fable.insightview.push.support.AtmosphereArgumentResolver"/>
+        </mvc:argument-resolvers>
+	</mvc:annotation-driven>
+	spring在实例化@Controller类时，Spring会自动把关联的@Service（此@Service已做了@Transaction事务注解）类实例化，此时事务并未生效，导致@Transaction注解无效，事务未被注册
+	表示容器在使用注解加载控制层时,不实例化控制层以外的组件
+	<context:component-scan base-package="com.fable.insightview" >
+		使用注解加载除控制层以外的组件，这时，在加载service层时事务就会关联在服务层上，相关的事务注解的配置也就生效了
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" /> 
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service" />
+	</context:component-scan> 
+
+	<mvc:resources location="/framelayout/" mapping="/framelayout/**" />
+	<mvc:resources location="/plugin/easyui/" mapping="/plugin/easyui/**" />
+	<mvc:resources location="/plugin/**" mapping="/plugin/**" />
+	<mvc:resources location="/js/" mapping="/js/**" />
+	<mvc:resources location="/splitPage/" mapping="/splitPage/**" />
+	<mvc:resources location="/fonts/" mapping="/fonts/**" />
+	<mvc:resources location="/fui/" mapping="/fui/**" />
+	<mvc:resources location="/style/" mapping="/style/**" />
+	<mvc:resources location="/processimages/" mapping="/processimages/**" />
+	<mvc:resources location="/permissionSysMenuModule/" mapping="/permissionSysMenuModule/**" />
+	<mvc:resources location="/img/" mapping="/img/**" />
+	<mvc:resources location="/images/" mapping="/images/**" />
+	<mvc:resources location="/uploadFiles/" mapping="/uploadFiles/**" />
+	
+	<mvc:default-servlet-handler/>
+	
+	定义全局数据转换
+	<bean id="conversionService"
+		class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+		这里可以添加多个转换器
+		<property name="converters">
+			<list>
+				<bean class="com.fable.insightview.platform.itsm.core.converter.StringToDateConverter" />
+			</list>
+		</property>
+	</bean>
+    
+    <mvc:interceptors>
+    	<mvc:interceptor>
+    		<mvc:mapping path="/rest/**"/>
+    		<bean class="com.fable.insightview.push.support.JsonContentTypeInterceptor"/>
+    	</mvc:interceptor>
+    	<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<bean class="com.fable.insightview.platform.modulelog.ModuleLogInterceptor"></bean>
+		</mvc:interceptor>
+    </mvc:interceptors>
+
+
+	注意：org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter的Bean配置中，我们加入了messageConverters属性，在该属性中我们有配置jsonHttpMessageConverter这个Bean,它就是用来处理json数据转换的。
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		json转换
+		<property name="messageConverters">
+			<list>
+				<ref bean="jsonHttpMessageConverter" />
+				<ref bean="stringHttpMessageConverter" />
+			</list>
+		</property>
+	</bean>
+	在jsonHttpMessageConverter的Bean配置中，我们有一个supportedMediaTypes属性，在这个属性 
+		中我们添加了text/html;charset=UTF-8这个值，它是为了处理返回的json数据的编码，默认是ISO-88859-1的，这里我们把它设置为UTF-8,如果有乱码的情况，我们只需要修改这里就可以了。
+
+	<bean id="jsonHttpMessageConverter"
+		class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+		<property name="supportedMediaTypes">
+			<list>
+				<value>text/html;charset=UTF-8</value>
+				<value>application/json;charset=UTF-8</value>
+			</list>
+		</property>
+	</bean>
+	
+	
+	<bean id="stringHttpMessageConverter"
+		class="org.springframework.http.converter.StringHttpMessageConverter">
+		<property name="supportedMediaTypes">
+			<list>
+				<value>text/html;charset=UTF-8</value>
+			</list>
+		</property>
+	</bean>
+
+	配置返回资源的前后辍
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/WEB-INF/jsp/"></property>
+		<property name="suffix" value=".jsp"></property>
+		<property name="contentType" value="text/html; charset=utf-8" />
+	</bean>
+
+
+	 -->
+</beans>
