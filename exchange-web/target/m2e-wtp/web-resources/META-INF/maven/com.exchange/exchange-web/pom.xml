@@ -1,0 +1,23 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.exchange</groupId>
+		<artifactId>data-exchange</artifactId>
+		<version>${exchange.version}</version>
+	</parent>
+	<artifactId>exchange-web</artifactId>
+	<packaging>war</packaging>
+	<name>exchange-web Maven Webapp</name>
+	<dependencies>
+		<dependency>
+			<groupId>com.exchange</groupId>
+			<artifactId>exchange-optool</artifactId>
+			<version>${exchange.version}</version>
+			<scope>compile</scope>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>exchange-web</finalName>
+	</build>
+</project>
