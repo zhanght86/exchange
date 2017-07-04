@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.study.dao.UserDao">  
+
+	
+	<select id="findUserByName" parameterType="string" resultType="com.study.model.User">
+		SELECT id,username,password,enable 
+		FROM t_user
+		WHERE username=#{username}
+	</select>
+	
+	<select id="queryAll" parameterType="com.study.model.User" resultType="com.study.model.User">
+		SELECT id,username,enable FROM t_user where 1 = 1
+		<if test="id != null and id != ''">
+			AND id = #{id}
+		</if>
+		<if test="username != null and username != ''">
+			AND username LIKE '%${username}%'
+		</if>
+		<if test="enable != null">
+			AND enable  = #{enable}
+		</if>
+			ORDER BY id ASC
+	</select>
+	
+	<delete id="delRolesByUserId" parameterType="string">
+		DELETE FROM t_user_role WHERE userId = #{userId}
+	</delete>
+	
+	<insert id="addUserRole" parameterType="com.study.model.UserRole">
+		INSERT INTO t_user_role(userId,roleId) VALUES (#{userId},#{roleId})
+	</insert>
+	
+	<insert id="addEntity" parameterType="com.study.model.User">
+		INSERT INTO t_user(username,password,enable) VALUES(#{username},#{password},1)
+	</insert>
+	
+	<delete id="deleteEntity" parameterType="int">
+		DELETE FROM t_user WHERE id = #{id}
+	</delete>
+	
+	<select id="queryByName" parameterType="string" resultType="com.study.model.User">
+		SELECT id,username,enable
+		FROM t_user
+		WHERE username = #{username}
+	</select>
+	
+	<update id="editEntity" parameterType="com.study.model.User">
+		UPDATE t_user 
+		SET username = #{username},
+		 password = #{password}
+		WHERE id=#{id}
+	</update>
+</mapper> 
