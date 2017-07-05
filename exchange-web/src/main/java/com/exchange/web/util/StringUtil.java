@@ -9,7 +9,7 @@ import java.io.StringWriter;
 import java.io.Writer;
 
 /**
- * @Author: ouyangan
+ * @Author: zhangyong
  * @Date : 2016/10/7
  */
 public class StringUtil {

@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 
 /**
- * @Author ouyangan
+ *  @Author: zhangyong
  * @Date 2016/10/9/13:55
  * @Description Cache   redis实现
  */

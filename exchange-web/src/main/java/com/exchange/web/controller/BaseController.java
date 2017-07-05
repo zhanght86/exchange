@@ -24,7 +24,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 /**
  * 基础controller,方便统一异常处理
  *
- * @Author: ouyangan
+ * @Author: zhangyong
  * @Date : 2016/10/8
  */
 public class BaseController

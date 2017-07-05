@@ -13,7 +13,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import com.exchange.web.util.SystemConstant;
 
 /**
- * @Author ouyangan
+ *  @Author: zhangyong
  * @Date 2016/10/9/14:13
  * @Description 接口实现
  */

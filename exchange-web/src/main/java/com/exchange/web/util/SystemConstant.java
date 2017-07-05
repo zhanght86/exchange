@@ -1,7 +1,7 @@
 package com.exchange.web.util;
 
 /**
- * @Author: ouyangan
+ * @Author: zhangyong
  * @Date : 2016/10/20
  */
 public class SystemConstant {

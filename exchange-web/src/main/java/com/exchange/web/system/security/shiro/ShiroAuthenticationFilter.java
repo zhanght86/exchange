@@ -14,7 +14,7 @@ import com.exchange.web.util.Result;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
- * @Author ouyangan
+ *  @Author: zhangyong
  * @Date 2016/11/1/19:32
  * @Description 登录过滤器
  */
