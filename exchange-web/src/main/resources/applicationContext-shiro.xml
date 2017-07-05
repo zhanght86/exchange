@@ -15,6 +15,9 @@
 			<value>
 				/system/captcha=anon
 				/static/**=anon
+				/js/**=anon
+				/lib/**=anon
+				/temp/**=anon
 				/system/logout = anon
 				/system/login=anon
 				/oauth/**=anon

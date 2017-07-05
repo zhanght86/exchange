@@ -44,12 +44,13 @@ public class ShiroAuthenticationFilter extends PassThruAuthenticationFilter
                 response.getWriter().flush();
                 response.getWriter().close();
             }
-            else
+            /*else
             {
                 response.setCharacterEncoding("UTF-8");
                 response.setContentType("text/html;charset=UTF-8");
-                ((HttpServletResponse)response).sendRedirect("/hunt-admin");
-            }
+                ((HttpServletResponse)response).sendRedirect("/shiro");
+                log.debug(":::"+((HttpServletRequest)request).getServletPath());
+            }*/
             return false;
         }
     }

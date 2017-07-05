@@ -4,7 +4,7 @@ $(document).ready(function () {
         captchaObj.appendTo("#embed-captcha");
         captcha = captchaObj;
     };
-    $.ajax({
+    /*$.ajax({
         url: getRootPath() + "/system/captcha?t=" + (new Date()).getTime(), // 加随机数防止缓存
         type: "get",
         dataType: "json",
@@ -16,7 +16,7 @@ $(document).ready(function () {
                 offline: !data.success
             }, handlerEmbed);
         }
-    });
+    });*/
     $("#login").dialog({
 
         title: '系统登录',
@@ -87,7 +87,4 @@ $(document).ready(function () {
     } else if (!$("#password").validatebox("isValid")) {
         $("#password").focus();
     }
-    $("#github").click(function () {
-        location = "https://github.com/login/oauth/authorize?client_id=f4b35940357e82596645&state=hunt_admin&redirect_uri=http://127.0.0.1:8080/oauth/github";
-    });
 });
