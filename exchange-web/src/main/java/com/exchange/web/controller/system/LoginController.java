@@ -47,11 +47,6 @@ public class LoginController extends BaseController
         throws Exception
     {
         // 极限验证二次服务验证
-        if (!verifyCaptcha(request))
-        {
-            return Result.instance(ResponseCode.verify_captcha_error.getCode(),
-                ResponseCode.verify_captcha_error.getMsg());
-        }
         SysUser user = sysUserService.selectByLoginName(loginName);
         if (user == null)
         {
@@ -63,9 +58,7 @@ public class LoginController extends BaseController
         }
         Subject subject = SecurityUtils.getSubject();
         subject.login(new UsernamePasswordToken(loginName, password));
-        LoginInfo loginInfo = sysUserService.login(user, subject.getSession().getId(), platform);
-        subject.getSession().setAttribute("loginInfo", loginInfo);
         log.debug("登录成功");
-        return Result.success(loginInfo);
+        return Result.success("");
     }
 }
